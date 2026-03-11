@@ -1,0 +1,4 @@
+WOWOWOWOW HHH1: Nom: sergi, Numero: 2, Edat: 20
+2: Nom: hola, Numero: 2, Edat: 3
+1: Nom: Hey, Numero: 2, Edat: 33
+2: Nom: Hola, Numero: 2, Edat: 33
