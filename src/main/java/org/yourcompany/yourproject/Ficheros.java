@@ -17,16 +17,18 @@ public class Ficheros {
     public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
         System.out.println("Vols crear el fitxer o contar quantes vegades es repeteix un carácter dins del fitxer?");
-        System.out.println("ESCRIU CREAR (si el vols crear): ");
-        System.out.println("ESCRIU CONTAR (si el vols contar): ");
+        System.out.println("---ESCRIU CREAR (si el vols crear)--- ");
+        System.out.println("---ESCRIU CONTAR (si el vols contar)---");
+        System.out.print("Funció: ");
         String accio = lector.nextLine();
+
         if (accio.equals("CREAR")|| accio.equals("crear")){
             System.out.println("--- INICIANDO REGISTRO DE DATOS ---");
             crearMapa(); // Llamamos al primer bloque de código
         }
         else if (accio.equals("CONTAR") || accio.equals("contar")){
             System.out.println("\n--- INICIANDO CONTEO DE LETRAS ---");
-            contarLetras(); // Llamamos al segundo bloque de código 
+            contarLletres(); // Llamamos al segundo bloque de código 
         }
         else {
             System.out.println("Posa una acció correcta.");
@@ -95,7 +97,7 @@ public class Ficheros {
     }
     
     // 3. Método separado para contar las letras
-    public static void contarLetras() {
+    public static void contarLletres() {
         // Asegúrate de que este archivo exista o cambiará la ruta a "agendaNumeros.txt"
         // si quieres leer el archivo que acabas de crear.
         String rutaArchivo = "/home/alumne/Documents/Programació/FitxersJava/agendaNumeros.txt";
@@ -112,13 +114,22 @@ public class Ficheros {
                     contador.put(letra, contador.getOrDefault(letra, 0) + 1);
                 }
             }
+
         } catch (IOException e) {
             System.err.println("Hubo un error al leer el archivo: " + e.getMessage());
         }
         
         System.out.println("--- Conteo de Letras ---");
+        char letraMasRepetida = ' ';
+        int maxRepeticiones = 0;
         for (Map.Entry<Character, Integer> entrada : contador.entrySet()) {
-            System.out.println("Letra '" + entrada.getKey() + "': " + entrada.getValue() + " veces");
+            System.out.println("Lletra '" + entrada.getKey() + "': " + entrada.getValue() + " vegades");
+            if (entrada.getValue() > maxRepeticiones) {
+                maxRepeticiones = entrada.getValue(); // Actualizamos el nuevo récord de cantidad
+                letraMasRepetida = entrada.getKey();  // Guardamos quién es la nueva letra ganadora
+            }
         }
+        System.out.println("-- Més repeticions "+letraMasRepetida);
+        System.out.println("-- Es repeteix "+maxRepeticiones +" vegades.");
     }
 }
