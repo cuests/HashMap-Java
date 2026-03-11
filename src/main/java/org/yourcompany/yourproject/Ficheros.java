@@ -132,4 +132,5 @@ public class Ficheros {
         System.out.println("-- Més repeticions "+letraMasRepetida);
         System.out.println("-- Es repeteix "+maxRepeticiones +" vegades.");
     }
+    //CREAR MÈTODE PER CONTAR PARAULES
 }
